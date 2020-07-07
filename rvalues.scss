@@ -1,0 +1,176 @@
+/*
+	by Adil Hanney
+	more information at https://adil.hanney.org/repo/rvalues_css.php
+*/
+
+$small-width: 768px !default;
+$medium-width: 992px !default;
+$large-width: 1500px !default;
+
+$min: min !default;
+$small: small !default;
+$medium: medium !default;
+$large: large !default;
+
+$cols: r !default;
+$percents: p !default;
+$items: i !default;
+$autos: a !default;
+
+$allclasses: null !default;
+
+
+@mixin gencols($size) {
+	@for $w from 0 through 1 {
+		$WH: if($w > 0, "X", "Y");
+		$widthheight: if($w > 0, "width", "height");
+		
+		@for $i from 0 through 12 {
+			$el: ".#{$WH}#{$cols}#{$size}#{$i}";
+			$allclasses: append($allclasses, $el, comma) !global;
+			#{$el} {
+				#{$widthheight}: 100% / 12 * $i;
+				#{$widthheight}: calc(#{100% / 12 * $i} - 1px);
+			}
+		}
+	}
+}
+@mixin genpercents($size) {
+	@for $w from 0 through 1 {
+		$WH: if($w > 0, "X", "Y");
+		$widthheight: if($w > 0, "width", "height");
+		
+		@for $i from 0 through 100 {
+			@if $i % 10 == 0 or $i < 10 or $i > 90 {
+				$el: ".#{$WH}#{$percents}#{$size}#{$i}";
+				$allclasses: append($allclasses, $el, comma) !global;
+				#{$el} {
+					#{$widthheight}: 1px;
+					#{$widthheight}: 1% * $i;
+					#{$widthheight}: calc(#{1% * $i} - 1px);
+				}
+			}
+		}
+	}
+}
+@mixin genitems($size) {
+	@for $w from 0 through 1 {
+		$WH: if($w > 0, "X", "Y");
+		$widthheight: if($w > 0, "width", "height");
+		
+		$el: ".#{$WH}#{$items}#{$size}0";
+		$allclasses: append($allclasses, $el, comma) !global;
+		#{$el} {
+			#{$widthheight}: 0;
+		}
+		@for $i from 1 through 12 { // max 12 but can have any number
+			$el: ".#{$WH}#{$items}#{$size}#{$i}";
+			$allclasses: append($allclasses, $el, comma) !global;
+			#{$el} {
+				#{$widthheight}: 100% / $i;
+				#{$widthheight}: calc(#{100% / $i} - 1px);
+			}
+		}
+	}
+}
+@mixin genautos($size) {
+	@for $w from 0 through 1 {
+		$WH: if($w > 0, "X", "Y");
+		$widthheight: if($w > 0, "width", "height");
+		
+		$el: ".#{$WH}#{$autos}#{$size}";
+		$allclasses: append($allclasses, $el, comma) !global;
+		#{$el} {
+			#{$widthheight}: initial;
+			#{$widthheight}: auto;
+		}
+	}
+}
+
+
+
+
+
+
+@media screen {
+	.screenonly, .noprint { display: block !important; }
+	.printonly, .noscreen { display: none !important; } 
+	
+	button.screenonly, a.screenonly, span.screenonly,
+	button.noprint, a.noprint, span.noprint {
+		display: inline-block !important;
+	}
+}
+@media print {
+	.screenonly, .noprint { display: none !important; }
+	.printonly, .noscreen { display: block !important; }
+	
+	button.printonly, a.printonly, span.printonly,
+	button.noscreen, a.noscreen, span.noscreen {
+		display: inline-block !important;
+	}
+	
+	/* stop url links printing on anchor tags */
+	a[href]:after {
+		display: none !important;
+		visibility: hidden !important;
+		opacity: 0 !important;
+	}
+}
+
+* {
+	scroll-behavior: smooth;
+	transition: all 0.1s ease-in-out;
+}
+.Rparent {
+	font-size: 0;
+}
+.Rparent > * {
+	font-size: initial;
+}
+.Rparent:after {
+	display: table;
+	content: "";
+	clear: both;
+}
+
+$size: $min;
+@include gencols($size);
+@include genpercents($size);
+@include genitems($size);
+@include genautos($size);
+
+@media (min-width: $small-width) {
+	$size: $small;
+	@include gencols($size);
+	@include genpercents($size);
+	@include genitems($size);
+	@include genautos($size);
+}
+@media (min-width: $medium-width) {
+	$size: $medium;
+	@include gencols($size);
+	@include genpercents($size);
+	@include genitems($size);
+	@include genautos($size);
+}
+@media (min-width: $large-width) {
+	$size: $large;
+	@include gencols($size);
+	@include genpercents($size);
+	@include genitems($size);
+	@include genautos($size);
+}
+
+$x: append(".R", $allclasses, comma);
+#{$x} {
+	display: inline-block !important;
+	position: relative;
+	padding: 10px 15px;
+	vertical-align: top;
+}
+
+.R.R-compact {
+	padding: 0.1rem;
+	padding: min(0.1rem, 5px);
+}
