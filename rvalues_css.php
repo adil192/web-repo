@@ -26,18 +26,6 @@
 	<div class="sliding">
 		<a class="btn btn-link btn-back" href="./">❮</a>
 		<div class="sliding-box">
-			<h1 class="auto-type" data-auto-type-text="rvalues.css">
-				<!--[if !IE]><!--> <noscript> <!--<![endif]-->
-					rvalues.css
-					<!--[if !IE]><!--> </noscript> <!--<![endif]-->
-				<!--[if !IE]><!-->
-				<script class="temporary">
-                    let previous_sliding_text = Cookies.get('previous_sliding_text'); Cookies.remove('previous_sliding_text');
-                    if (previous_sliding_text) document.write(previous_sliding_text);
-                    Cookies.set('previous_sliding_text', "rvalues.css", { expires: 1 });
-				</script>
-				<!--<![endif]-->
-			</h1>
 			<h1 class="auto-type" data-auto-type-text="rvalues.css" data-auto-type-avg-delay="150"
 			><!--[if !IE]><!--><noscript><!--<![endif]-->rvalues.css<!--[if !IE]><!--></noscript><!--<![endif]--><!--
 			--><!--[if !IE]><!--><script class="temporary">
