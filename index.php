@@ -7,6 +7,7 @@
 	
 	<meta property="og:type" content="website"/>
 	<meta property="og:title" content="Adil's Repo"/>
+	<meta name="description" content="A repo containing a simple stylesheet for responsive layouts." />
 	<meta property="og:description" content="A repo containing a simple stylesheet for responsive layouts."/>
 	<meta property="og:locale" content="en_GB" />
 	<meta property="og:image" content="https://adil.hanney.org/repo/previews/index.php.png"/>
