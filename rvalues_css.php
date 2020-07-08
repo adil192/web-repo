@@ -1,7 +1,15 @@
+<?php include_once "../create_meta_tags.php"; ?>
 <!doctype html>
 <html lang="en">
 
 <head>
+	<?php
+	create_meta_tags(
+		$title="rvalues.css",
+		$desc="A simple stylesheet for responsive layouts.",
+		$image="https://adil.hanney.org/repo/previews/rvalues_css.png"
+	);
+	?>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

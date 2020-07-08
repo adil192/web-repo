@@ -1,31 +1,20 @@
+<?php include_once "../create_meta_tags.php"; ?>
 <!doctype html>
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
-	<meta property="og:type" content="website"/>
-	<meta property="og:title" content="Adil's Repo"/>
-	<meta name="description" content="A repo containing a simple stylesheet for responsive layouts." />
-	<meta property="og:description" content="A repo containing a simple stylesheet for responsive layouts."/>
-	<meta property="og:locale" content="en_GB" />
-	<meta property="og:image" content="https://adil.hanney.org/repo/previews/index.png"/>
+	<?php
+	create_meta_tags(
+		$title="Adil's Repo",
+		$desc="A repo containing a simple stylesheet for responsive layouts.",
+		$image="https://adil.hanney.org/repo/previews/index.png"
+	);
+	?>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	
 	<link rel="stylesheet" href="/assets/css/global_styles.css">
 	<link rel="stylesheet" href="assets/repo.css">
-	
-	<noscript>
-		<style>
-			script {
-				display: none !important;
-			}
-		</style>
-	</noscript>
-
-	<title>Adil's Repo</title>
 </head>
 
 <body>
