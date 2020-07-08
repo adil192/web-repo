@@ -10,7 +10,7 @@
 	<meta name="description" content="A repo containing a simple stylesheet for responsive layouts." />
 	<meta property="og:description" content="A repo containing a simple stylesheet for responsive layouts."/>
 	<meta property="og:locale" content="en_GB" />
-	<meta property="og:image" content="https://adil.hanney.org/repo/previews/index.php.png"/>
+	<meta property="og:image" content="https://adil.hanney.org/repo/previews/index.png"/>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	
