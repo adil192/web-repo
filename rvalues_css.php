@@ -1,10 +1,10 @@
-<?php include_once "../create_meta_tags.php"; ?>
+<?php include_once "../global_tools.php"; ?>
 <!doctype html>
 <html lang="en">
 
 <head>
 	<?php
-	create_meta_tags(
+	createHead(
 		$title="rvalues.css",
 		$desc="A simple stylesheet for responsive layouts.",
 		$image="https://adil.hanney.org/repo/previews/rvalues_css.png"
@@ -25,22 +25,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 	<script src="assets/pageload.js"></script>
 	
-	<div class="sliding">
-		<a class="btn btn-link btn-back" href="./">❮</a>
-		<div class="sliding-box">
-			<h1 class="auto-type" data-auto-type-text="rvalues.css" data-auto-type-avg-delay="150"
-			><!--[if !IE]><!--><noscript><!--<![endif]-->rvalues.css<!--[if !IE]><!--></noscript><!--<![endif]--><!--
-			--><!--[if !IE]><!--><script class="temporary">
-                    let previous_sliding_text = Cookies.get('previous_sliding_text'); Cookies.remove('previous_sliding_text');
-                    if (previous_sliding_text) document.write(previous_sliding_text);
-                    Cookies.set('previous_sliding_text', "rvalues.css", { expires: 1 });
-				</script><!--<![endif]--></h1>
-		</div>
-		<div class="sliding-credit">
-			<span data-nosnippet>Image by Simon Clayton from Pexels</span>
-		</div>
-	</div>
-	
+	<?php createHeader("rvalues.css"); ?>
 	
 	<div class="item container">
 		<h3>rvalues.css</h3>

@@ -1,10 +1,10 @@
-<?php include_once "../create_meta_tags.php"; ?>
+<?php include_once "../global_tools.php"; ?>
 <!doctype html>
 <html lang="en">
 
 <head>
 	<?php
-	create_meta_tags(
+	createHead(
 		$title="Adil's Repo",
 		$desc="A repo containing a simple stylesheet for responsive layouts.",
 		$image="https://adil.hanney.org/repo/previews/index.png"
@@ -22,20 +22,7 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 	
-	<div class="sliding">
-		<div class="sliding-box">
-			<h1 class="auto-type" data-auto-type-text="Adil's Repo" data-auto-type-avg-delay="150"
-			><!--[if !IE]><!--><noscript><!--<![endif]-->Adil's Repo<!--[if !IE]><!--></noscript><!--<![endif]--><!--
-			--><!--[if !IE]><!--><script class="temporary">
-                    let previous_sliding_text = Cookies.get('previous_sliding_text'); Cookies.remove('previous_sliding_text');
-                    if (previous_sliding_text) document.write(previous_sliding_text);
-                    Cookies.set('previous_sliding_text', "Adil's Repo", { expires: 1 });
-				</script><!--<![endif]--></h1>
-		</div>
-		<div class="sliding-credit">
-			<span data-nosnippet>Image by Simon Clayton from Pexels</span>
-		</div>
-	</div>
+	<?php createHeader("Adil's Repo"); ?>
 	
 	<div class="item container">
 		<h3>rvalues.css</h3>
