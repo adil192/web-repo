@@ -47,7 +47,7 @@
 				</script><!--<![endif]--></h1>
 		</div>
 		<div class="sliding-credit">
-			<span>Image by Simon Clayton from Pexels</span>
+			<span data-nosnippet>Image by Simon Clayton from Pexels</span>
 		</div>
 	</div>
 	
