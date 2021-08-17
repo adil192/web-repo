@@ -86,6 +86,15 @@ $Rclasses: null !default; // upkeeps legacy code that doesn't use the .R class
 		}
 	}
 }
+@mixin genDisplays($size) {
+	$displays: ("block", "inline-block", "inline", "flex", "grid", "none");
+	@each $display in $displays {
+		$el: ".D#{$size}-#{$display}"; // e.g. Dmin-block
+		#{$el} {
+			display: #{$display};
+		}
+	}
+}
 
 
 
@@ -139,6 +148,7 @@ $size: $min;
 @include genPercents($size);
 @include genItems($size);
 @include genAutos($size);
+@include genDisplays($size);
 
 @media (min-width: $small-width) {
 	$size: $small;
@@ -146,6 +156,7 @@ $size: $min;
 	@include genPercents($size);
 	@include genItems($size);
 	@include genAutos($size);
+	@include genDisplays($size);
 }
 @media (min-width: $medium-width) {
 	$size: $medium;
@@ -153,6 +164,7 @@ $size: $min;
 	@include genPercents($size);
 	@include genItems($size);
 	@include genAutos($size);
+	@include genDisplays($size);
 }
 @media (min-width: $large-width) {
 	$size: $large;
@@ -160,6 +172,7 @@ $size: $min;
 	@include genPercents($size);
 	@include genItems($size);
 	@include genAutos($size);
+	@include genDisplays($size);
 }
 
 $x: append(".R", $Rclasses, comma);
