@@ -17,17 +17,17 @@ $percents: p !default;
 $items: i !default;
 $autos: a !default;
 
-$allclasses: null !default;
+$Rclasses: null !default; // upkeeps legacy code that doesn't use the .R class
 
 
-@mixin gencols($size) {
+@mixin genCols($size) {
 	@for $w from 0 through 1 {
 		$WH: if($w > 0, "X", "Y");
 		$widthheight: if($w > 0, "width", "height");
 		
 		@for $i from 0 through 12 {
 			$el: ".#{$WH}#{$cols}#{$size}#{$i}";
-			$allclasses: append($allclasses, $el, comma) !global;
+			$Rclasses: append($Rclasses, $el, comma) !global;
 			#{$el} {
 				#{$widthheight}: 100% / 12 * $i;
 				#{$widthheight}: calc(#{100% / 12 * $i} - 1px);
@@ -35,7 +35,7 @@ $allclasses: null !default;
 		}
 	}
 }
-@mixin genpercents($size) {
+@mixin genPercents($size) {
 	@for $w from 0 through 1 {
 		$WH: if($w > 0, "X", "Y");
 		$widthheight: if($w > 0, "width", "height");
@@ -43,7 +43,7 @@ $allclasses: null !default;
 		@for $i from 0 through 100 {
 			@if $i % 10 == 0 or $i < 10 or $i > 90 {
 				$el: ".#{$WH}#{$percents}#{$size}#{$i}";
-				$allclasses: append($allclasses, $el, comma) !global;
+				$Rclasses: append($Rclasses, $el, comma) !global;
 				#{$el} {
 					#{$widthheight}: 1px;
 					#{$widthheight}: 1% * $i;
@@ -53,19 +53,19 @@ $allclasses: null !default;
 		}
 	}
 }
-@mixin genitems($size) {
+@mixin genItems($size) {
 	@for $w from 0 through 1 {
 		$WH: if($w > 0, "X", "Y");
 		$widthheight: if($w > 0, "width", "height");
 		
 		$el: ".#{$WH}#{$items}#{$size}0";
-		$allclasses: append($allclasses, $el, comma) !global;
+		$Rclasses: append($Rclasses, $el, comma) !global;
 		#{$el} {
 			#{$widthheight}: 0;
 		}
 		@for $i from 1 through 12 { // max 12 but can have any number
 			$el: ".#{$WH}#{$items}#{$size}#{$i}";
-			$allclasses: append($allclasses, $el, comma) !global;
+			$Rclasses: append($Rclasses, $el, comma) !global;
 			#{$el} {
 				#{$widthheight}: 100% / $i;
 				#{$widthheight}: calc(#{100% / $i} - 1px);
@@ -73,13 +73,13 @@ $allclasses: null !default;
 		}
 	}
 }
-@mixin genautos($size) {
+@mixin genAutos($size) {
 	@for $w from 0 through 1 {
 		$WH: if($w > 0, "X", "Y");
 		$widthheight: if($w > 0, "width", "height");
 		
 		$el: ".#{$WH}#{$autos}#{$size}";
-		$allclasses: append($allclasses, $el, comma) !global;
+		$Rclasses: append($Rclasses, $el, comma) !global;
 		#{$el} {
 			#{$widthheight}: initial;
 			#{$widthheight}: auto;
@@ -135,34 +135,34 @@ $allclasses: null !default;
 }
 
 $size: $min;
-@include gencols($size);
-@include genpercents($size);
-@include genitems($size);
-@include genautos($size);
+@include genCols($size);
+@include genPercents($size);
+@include genItems($size);
+@include genAutos($size);
 
 @media (min-width: $small-width) {
 	$size: $small;
-	@include gencols($size);
-	@include genpercents($size);
-	@include genitems($size);
-	@include genautos($size);
+	@include genCols($size);
+	@include genPercents($size);
+	@include genItems($size);
+	@include genAutos($size);
 }
 @media (min-width: $medium-width) {
 	$size: $medium;
-	@include gencols($size);
-	@include genpercents($size);
-	@include genitems($size);
-	@include genautos($size);
+	@include genCols($size);
+	@include genPercents($size);
+	@include genItems($size);
+	@include genAutos($size);
 }
 @media (min-width: $large-width) {
 	$size: $large;
-	@include gencols($size);
-	@include genpercents($size);
-	@include genitems($size);
-	@include genautos($size);
+	@include genCols($size);
+	@include genPercents($size);
+	@include genItems($size);
+	@include genAutos($size);
 }
 
-$x: append(".R", $allclasses, comma);
+$x: append(".R", $Rclasses, comma);
 #{$x} {
 	display: inline-block !important;
 	position: relative;
