@@ -12,10 +12,11 @@ $small: small !default;
 $medium: medium !default;
 $large: large !default;
 
-$cols: r !default;
-$percents: p !default;
-$items: i !default;
-$autos: a !default;
+$COLS: r !default;
+$PERCENTS: p !default;
+$ITEMS: i !default;
+$ITEMS: a !default;
+$DISPLAYS: D !default;
 
 $Rclasses: null !default; // upkeeps legacy code that doesn't use the .R class
 
@@ -26,7 +27,7 @@ $Rclasses: null !default; // upkeeps legacy code that doesn't use the .R class
 		$widthheight: if($w > 0, "width", "height");
 		
 		@for $i from 0 through 12 {
-			$el: ".#{$WH}#{$cols}#{$size}#{$i}";
+			$el: ".#{$WH}#{$COLS}#{$size}#{$i}";
 			$Rclasses: append($Rclasses, $el, comma) !global;
 			#{$el} {
 				#{$widthheight}: 100% / 12 * $i;
@@ -42,7 +43,7 @@ $Rclasses: null !default; // upkeeps legacy code that doesn't use the .R class
 		
 		@for $i from 0 through 100 {
 			@if $i % 10 == 0 or $i < 10 or $i > 90 {
-				$el: ".#{$WH}#{$percents}#{$size}#{$i}";
+				$el: ".#{$WH}#{$PERCENTS}#{$size}#{$i}";
 				$Rclasses: append($Rclasses, $el, comma) !global;
 				#{$el} {
 					#{$widthheight}: 1px;
@@ -58,13 +59,13 @@ $Rclasses: null !default; // upkeeps legacy code that doesn't use the .R class
 		$WH: if($w > 0, "X", "Y");
 		$widthheight: if($w > 0, "width", "height");
 		
-		$el: ".#{$WH}#{$items}#{$size}0";
+		$el: ".#{$WH}#{$ITEMS}#{$size}0";
 		$Rclasses: append($Rclasses, $el, comma) !global;
 		#{$el} {
 			#{$widthheight}: 0;
 		}
 		@for $i from 1 through 12 { // max 12 but can have any number
-			$el: ".#{$WH}#{$items}#{$size}#{$i}";
+			$el: ".#{$WH}#{$ITEMS}#{$size}#{$i}";
 			$Rclasses: append($Rclasses, $el, comma) !global;
 			#{$el} {
 				#{$widthheight}: 100% / $i;
@@ -78,7 +79,7 @@ $Rclasses: null !default; // upkeeps legacy code that doesn't use the .R class
 		$WH: if($w > 0, "X", "Y");
 		$widthheight: if($w > 0, "width", "height");
 		
-		$el: ".#{$WH}#{$autos}#{$size}";
+		$el: ".#{$WH}#{$ITEMS}#{$size}";
 		$Rclasses: append($Rclasses, $el, comma) !global;
 		#{$el} {
 			#{$widthheight}: initial;
@@ -89,7 +90,7 @@ $Rclasses: null !default; // upkeeps legacy code that doesn't use the .R class
 @mixin genDisplays($size) {
 	$displays: ("block", "inline-block", "inline", "flex", "grid", "none");
 	@each $display in $displays {
-		$el: ".D#{$size}-#{$display}"; // e.g. Dmin-block
+		$el: ".#{$DISPLAYS}#{$size}-#{$display}"; // e.g. Dmin-block
 		#{$el} {
 			display: #{$display};
 		}
