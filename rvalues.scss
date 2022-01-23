@@ -11,6 +11,7 @@ $min: min !default;
 $small: small !default;
 $medium: medium !default;
 $large: large !default;
+$print: print !default;
 
 $COLS: r !default;
 $PERCENTS: p !default;
@@ -169,6 +170,14 @@ $size: $min;
 }
 @media (min-width: $large-width) {
 	$size: $large;
+	@include genCols($size);
+	@include genPercents($size);
+	@include genItems($size);
+	@include genAutos($size);
+	@include genDisplays($size);
+}
+@media print {
+	$size: $print;
 	@include genCols($size);
 	@include genPercents($size);
 	@include genItems($size);
