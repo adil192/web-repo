@@ -103,10 +103,23 @@ $Rclasses: null !default; // upkeeps legacy code that doesn't use the .R class
 
 
 
+$x: append(".R", $Rclasses, comma);
+#{$x} {
+	display: inline-block !important;
+	position: relative;
+	padding: 10px 15px;
+	vertical-align: top;
+}
+
+.R.R-compact {
+	padding: 0.1rem;
+	padding: min(0.1rem, 5px);
+}
+
 @media screen {
 	.screenonly, .noprint { display: block !important; }
-	.printonly, .noscreen { display: none !important; } 
-	
+	.printonly, .noscreen { display: none !important; }
+
 	button.screenonly, a.screenonly, span.screenonly,
 	button.noprint, a.noprint, span.noprint {
 		display: inline-block !important;
@@ -115,12 +128,12 @@ $Rclasses: null !default; // upkeeps legacy code that doesn't use the .R class
 @media print {
 	.screenonly, .noprint { display: none !important; }
 	.printonly, .noscreen { display: block !important; }
-	
+
 	button.printonly, a.printonly, span.printonly,
 	button.noscreen, a.noscreen, span.noscreen {
 		display: inline-block !important;
 	}
-	
+
 	/* stop url links printing on anchor tags */
 	a[href]:after {
 		display: none !important;
@@ -183,17 +196,4 @@ $size: $min;
 	@include genItems($size);
 	@include genAutos($size);
 	@include genDisplays($size);
-}
-
-$x: append(".R", $Rclasses, comma);
-#{$x} {
-	display: inline-block !important;
-	position: relative;
-	padding: 10px 15px;
-	vertical-align: top;
-}
-
-.R.R-compact {
-	padding: 0.1rem;
-	padding: min(0.1rem, 5px);
 }
