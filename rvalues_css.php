@@ -5,9 +5,10 @@
 <head>
 	<?php
 	createHead(
-		$title="rvalues.css",
-		$desc="A simple stylesheet for responsive layouts.",
-		$image="https://adil.hanney.org/repo/previews/rvalues_css.png"
+		"rvalues.css",
+		"A simple stylesheet for responsive layouts.",
+		"https://adil.hanney.org/repo/previews/rvalues_css.png",
+        null
 	);
 	?>
 

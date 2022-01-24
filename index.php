@@ -5,9 +5,10 @@
 <head>
 	<?php
 	createHead(
-		$title="Adil's Repo",
-		$desc="A repo containing a simple stylesheet for responsive layouts.",
-		$image="https://adil.hanney.org/repo/previews/index.png"
+		"Adil's Repo",
+		"A repo containing a simple stylesheet for responsive layouts.",
+		"https://adil.hanney.org/repo/previews/index.png",
+        null
 	);
 	?>
 
