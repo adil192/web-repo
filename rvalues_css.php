@@ -292,6 +292,7 @@
         </div>
         <div class="item" id="args">
             <h3>4) Arguments</h3>
+            <p class="screenonly">Try using the sliders to change the argument.</p>
             <p class="printonly">Note: this has been disabled to better format the printed webpage.</p>
             <div class="Rparent">
                 <div class="R Ximin1 Xismall2">
