@@ -295,10 +295,10 @@
 			<div class="R Ximin1 Xismall2">
 				<div><code>.Ximin$</code></div>
 				<p>0-12 <code>i</code>tems</p>
-				<div class="form-group">
+				<div class="form-group noprint">
 					<input type="range" min="0" max="12" value="4" class="form-control-range" id="itemsRange" onInput="itemsRange(this);">
 				</div>
-				<code id="itemsRangeLabel">.Ximin4</code>
+				<span class="printonly">e.g. &nbsp;</span><code id="itemsRangeLabel">.Ximin4</code>
 				<div class="test Rparent" id="itemsRangeTest">
 					<div class="R Ximin4 blue" data-color="blue"></div>
 					<div class="R Ximin4 red" data-color="red"></div>
@@ -317,10 +317,10 @@
 			<div class="R Ximin1 Xismall2">
 				<div><code>.Xpmin$</code></div>
 				<p>0-100 <code>p</code>ercent</p>
-				<div class="form-group">
+				<div class="form-group noprint">
 					<input type="range" min="0" max="100" step="10" value="20" class="form-control-range" id="percentsRange" onInput="percentsRange(this);">
 				</div>
-				<code id="percentsRangeLabel">.Xpmin20</code>
+                <span class="printonly">e.g. &nbsp;</span><code id="percentsRangeLabel">.Xpmin20</code>
 				<div class="test Rparent" id="percentsRangeTest">
 					<div class="R Xpmin20 blue" data-color="blue"></div>
 					<div class="R Xpmin20 red" data-color="red"></div>
@@ -339,10 +339,10 @@
 			<div class="R Ximin1 Xismall2">
 				<div><code>.Xrmin$</code></div>
 				<p>An element with this class spans <code>$</code> out of 12 columns. This mimics the columns used in Bootstrap.</p>
-				<div class="form-group">
+				<div class="form-group noprint">
 					<input type="range" min="0" max="12" value="3" class="form-control-range" id="colsRange" onInput="colsRange(this);">
 				</div>
-				<code id="colsRangeLabel">.Xrmin3</code>
+                <span class="printonly">e.g. &nbsp;</span><code id="colsRangeLabel">.Xrmin3</code>
 				<div class="test Rparent" id="colsRangeTest">
 					<div class="R Xrmin3 blue" data-color="blue"></div>
 					<div class="R Xrmin3 red" data-color="red"></div>
