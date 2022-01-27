@@ -1,23 +1,17 @@
 function itemsRange(slider: HTMLInputElement) {
-	let newClass = "Ximin" + $(slider).val();
-	$("#itemsRangeLabel").text("."+newClass);
-	$("div", "#itemsRangeTest").each(function() {
-		let box = $(this);
-		box.removeClass().addClass("R " + newClass + " " + box.data("color"));
-	});
+	argumentsRange(slider, "Ximin", "#itemsRangeLabel", "#itemsRangeTest");
 }
 function percentsRange(slider: HTMLInputElement) {
-	let newClass = "Xpmin" + $(slider).val();
-	$("#percentsRangeLabel").text("."+newClass);
-	$("div", "#percentsRangeTest").each(function() {
-		let box = $(this);
-		box.removeClass().addClass("R " + newClass + " " + box.data("color"));
-	});
+	argumentsRange(slider, "Xpmin", "#percentsRangeLabel", "#percentsRangeTest");
 }
 function colsRange(slider: HTMLInputElement) {
-	let newClass = "Xrmin" + $(slider).val();
-	$("#colsRangeLabel").text("."+newClass);
-	$("div", "#colsRangeTest").each(function() {
+	argumentsRange(slider, "Xrmin", "#colsRangeLabel", "#colsRangeTest");
+}
+
+function argumentsRange(slider: HTMLInputElement, prefix: string, labelSelector: string, testDivSelector: string) {
+	let newClass = prefix + slider.value;
+	$(labelSelector).text("." + newClass);
+	$("div", testDivSelector).each(function() {
 		let box = $(this);
 		box.removeClass().addClass("R " + newClass + " " + box.data("color"));
 	});
