@@ -359,21 +359,21 @@
 				</div>
 			</div>
 			<div class="R Ximin1 Xismall2">
-				<div><code>.Ximin2.Xasmall</code></div>
+				<div><code>.Ximin4.Xasmall</code></div>
 				<p>Setting the width to <code>a</code>uto does not need any arguments</p>
 				<div class="test Rparent">
-					<div class="R Ximin2 Xasmall blue">the</div>
-					<div class="R Ximin2 Xasmall red">quick</div>
-					<div class="R Ximin2 Xasmall green">brown</div>
-					<div class="R Ximin2 Xasmall purple">fox</div>
-					<div class="R Ximin2 Xasmall orange">jumps</div>
-					<div class="R Ximin2 Xasmall teal">over</div>
-					<div class="R Ximin2 Xasmall blue">the</div>
-					<div class="R Ximin2 Xasmall red">lazy</div>
-					<div class="R Ximin2 Xasmall green">dog</div>
-					<div class="R Ximin2 Xasmall purple">and</div>
-					<div class="R Ximin2 Xasmall orange">more</div>
-					<div class="R Ximin2 Xasmall teal">text</div>
+					<div class="R Ximin4 Xasmall blue">the</div>
+					<div class="R Ximin4 Xasmall red">quick</div>
+					<div class="R Ximin4 Xasmall green">brown</div>
+					<div class="R Ximin4 Xasmall purple">fox</div>
+					<div class="R Ximin4 Xasmall orange">jumps</div>
+					<div class="R Ximin4 Xasmall teal">over</div>
+					<div class="R Ximin4 Xasmall blue">the</div>
+					<div class="R Ximin4 Xasmall red">lazy</div>
+					<div class="R Ximin4 Xasmall green">dog</div>
+					<div class="R Ximin4 Xasmall purple">and</div>
+					<div class="R Ximin4 Xasmall orange">more</div>
+					<div class="R Ximin4 Xasmall teal">text</div>
 				</div>
 			</div>
 		</div>
