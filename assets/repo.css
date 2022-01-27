@@ -6,6 +6,11 @@
 	--zoomed-diameter: max(100vw, 100vh);
 }
 
+a.item {
+	display: block;
+	text-decoration: none;
+}
+
 
 
 @keyframes zoomIn {

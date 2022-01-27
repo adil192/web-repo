@@ -25,13 +25,14 @@
 	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js"></script>
 	
 	<?php createHeader(); ?>
-	
-	<div class="item container">
-		<h3>rvalues.css</h3>
-		<p>A simple stylesheet for responsive layouts.</p>
-		<div><code class="language-html" data-lang="html">&lt;link href="https://adil.hanney.org/repo/rvalues.css" rel="stylesheet"&gt;</code></div>
-		<a href="rvalues_css.php" class="btn btn-link">more</a>
-	</div>
+
+    <a href="rvalues_css.php" class="item container">
+        <h3>rvalues.css</h3>
+        <p>A simple stylesheet for responsive layouts.</p>
+        <div><code class="language-html" data-lang="html">&lt;link href="https://adil.hanney.org/repo/rvalues.css" rel="stylesheet"&gt;</code></div>
+        <br>
+        <button type="button" class="btn btn-primary">Click here for more</button>
+    </a>
 	
 	<script async defer src="assets/script.js" ></script>
 	<script async defer src="../assets/js/autotype.js"></script>
