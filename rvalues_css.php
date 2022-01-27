@@ -240,47 +240,50 @@
 	</div>
 	<div class="item container" id="widths">
 		<h3>3) Widths</h3>
-		<p>we can resize content based on how wide the user's screen/browser is.
-			<br>try viewing this on different devices, or resize your browser window...</p>
+        <p>We can resize content based on how wide the user's screen/browser is.</p>
+
+		<p class="screenonly">Try viewing this on different devices, or resize your browser window...</p>
+        <p class="printonly">Note: this has been disabled to better format the printed webpage.</p>
+
 		<div class="Rparent">
 			<div class="R Ximin1 Xismall2">
 				<div><code>.Ximin1</code></div>
 				<p>min - this will be applied on all devices</p>
 				<div class="test Rparent">
-					<div class="R Ximin1 blue"></div>
-					<div class="R Ximin1 red"></div>
-					<div class="R Ximin1 green"></div>
-					<div class="R Ximin1 purple"></div>
+					<div class="R Ximin1 Xiprint4 blue"></div>
+					<div class="R Ximin1 Xiprint4 red"></div>
+					<div class="R Ximin1 Xiprint4 green"></div>
+					<div class="R Ximin1 Xiprint4 purple"></div>
 				</div>
 			</div>
 			<div class="R Ximin1 Xismall2">
 				<div><code><dull>.Ximin1</dull>.Xismall2</code></div>
 				<p>small - this will be applied on 'small' devices (768px wide and bigger)</p>
 				<div class="test Rparent">
-					<div class="R Ximin1 Xismall2 blue"></div>
-					<div class="R Ximin1 Xismall2 red"></div>
-					<div class="R Ximin1 Xismall2 green"></div>
-					<div class="R Ximin1 Xismall2 purple"></div>
+					<div class="R Ximin1 Xismall2 Xiprint4 blue"></div>
+					<div class="R Ximin1 Xismall2 Xiprint4 red"></div>
+					<div class="R Ximin1 Xismall2 Xiprint4 green"></div>
+					<div class="R Ximin1 Xismall2 Xiprint4 purple"></div>
 				</div>
 			</div>
 			<div class="R Ximin1 Xismall2">
 				<div><code><dull>.Ximin1.Xismall2</dull>.Ximedium3</code></div>
 				<p>medium - this will be applied on 'medium' devices (992px wide and bigger)</p>
 				<div class="test Rparent">
-					<div class="R Ximin1 Xismall2 Ximedium3 blue"></div>
-					<div class="R Ximin1 Xismall2 Ximedium3 red"></div>
-					<div class="R Ximin1 Xismall2 Ximedium3 green"></div>
-					<div class="R Ximin1 Xismall2 Ximedium3 purple"></div>
+					<div class="R Ximin1 Xismall2 Ximedium3 Xiprint4 blue"></div>
+					<div class="R Ximin1 Xismall2 Ximedium3 Xiprint4 red"></div>
+					<div class="R Ximin1 Xismall2 Ximedium3 Xiprint4 green"></div>
+					<div class="R Ximin1 Xismall2 Ximedium3 Xiprint4 purple"></div>
 				</div>
 			</div>
 			<div class="R Ximin1 Xismall2">
 				<div><code><dull>.Ximin1.Xismall2.Ximedium3</dull>.Xilarge4</code></div>
 				<p>large - this will be applied on 'large' devices (1500px wide and bigger)</p>
 				<div class="test Rparent">
-					<div class="R Ximin1 Xismall2 Ximedium3 Xilarge4 blue"></div>
-					<div class="R Ximin1 Xismall2 Ximedium3 Xilarge4 red"></div>
-					<div class="R Ximin1 Xismall2 Ximedium3 Xilarge4 green"></div>
-					<div class="R Ximin1 Xismall2 Ximedium3 Xilarge4 purple"></div>
+					<div class="R Ximin1 Xismall2 Ximedium3 Xilarge4 Xiprint4 blue"></div>
+					<div class="R Ximin1 Xismall2 Ximedium3 Xilarge4 Xiprint4 red"></div>
+					<div class="R Ximin1 Xismall2 Ximedium3 Xilarge4 Xiprint4 green"></div>
+					<div class="R Ximin1 Xismall2 Ximedium3 Xilarge4 Xiprint4 purple"></div>
 				</div>
 			</div>
 		</div>
