@@ -34,7 +34,7 @@
 		<div><code class="language-html" data-lang="html">&lt;link href="https://adil.hanney.org/repo/rvalues.css" rel="stylesheet"&gt;</code></div>
 		<p>CSS: <a href="rvalues.css">rvalues.css</a>
 			<br>SCSS: <a href="rvalues.scss">rvalues.scss</a></p>
-		<a href="#screenprint" class="btn btn-link">next</a>
+		<a href="#screenprint" class="btn btn-primary">next</a>
 	</div>
 	<div class="item container" id="screenprint">
 		<h3>Screen and print</h3>
@@ -65,7 +65,7 @@
 				<p class="noprint">This is .noprint</p>
 			</div>
 		</div>
-		<a href="#scrolling" class="btn btn-link">next</a>
+		<a href="#scrolling" class="btn btn-primary">next</a>
 	</div>
 	<div class="item container" id="scrolling">
 		<h3>Scrolling</h3>
@@ -76,7 +76,7 @@
 		<div><code>}</code></div>
 		<p>This means if you click a button like <a href="#rparents">this one</a> it will smoothly scroll to the specified element (the next section in this case).
 			<br>If you don't like the transition rule, it has a low specificity so it can be easily overridden.</p>
-		<a href="#rparents" class="btn btn-link">next</a>
+		<a href="#rparents" class="btn btn-primary">next</a>
 	</div>
 	<div class="item container" id="rparents">
 		<h3>Spacing issues</h3>
@@ -161,7 +161,7 @@
 				</div>
 			</div>
 		</div>
-		<a href="#namingscheme" class="btn btn-link">next</a>
+		<a href="#namingscheme" class="btn btn-primary">next</a>
 	</div>
 	<div class="item container" id="namingscheme">
 		<h3>0) Responsive layout naming scheme</h3>
@@ -173,7 +173,7 @@
 			<li><a href="#widths">3) Widths</a></li>
 			<li><a href="#args">4) Arguments</a></li>
 		</ul>
-		<a href="#xandy" class="btn btn-link">next</a>
+		<a href="#xandy" class="btn btn-primary">next</a>
 	</div>
 	<div class="item container" id="xandy">
 		<h3>1) X and Y</h3>
@@ -195,7 +195,7 @@
 			</div>
 		</div>
 		<p>We will be focussing on X in this page but Y is exactly the same.</p>
-		<a href="#prefix" class="btn btn-link">next</a>
+		<a href="#prefix" class="btn btn-primary">next</a>
 	</div>
 	<div class="item container" id="prefix">
 		<h3>2) Prefix</h3>
@@ -236,7 +236,7 @@
 				</div>
 			</div>
 		</div>
-		<a href="#widths" class="btn btn-link">next</a>
+		<a href="#widths" class="btn btn-primary">next</a>
 	</div>
 	<div class="item container" id="widths">
 		<h3>3) Widths</h3>
@@ -284,7 +284,7 @@
 				</div>
 			</div>
 		</div>
-		<a href="#args" class="btn btn-link">next</a>
+		<a href="#args" class="btn btn-primary">next</a>
 	</div>
 	<div class="item container" id="args">
 		<h3>4) Arguments</h3>
@@ -374,7 +374,7 @@
 				</div>
 			</div>
 		</div>
-		<a href="#namingscheme" class="btn btn-link">next</a>
+		<a href="#namingscheme" class="btn btn-primary">next</a>
 	</div>
 	
 	<script async defer src="assets/script.js" ></script>
