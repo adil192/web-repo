@@ -44,3 +44,9 @@
 .teal {
 	background: #13dda3;
 }
+
+.test-set-height {
+	height: 10rem;
+	border: 2px dashed;
+	padding: 1rem;
+}

@@ -11,6 +11,12 @@ a.item {
 	text-decoration: none;
 }
 
+@media print {
+	.item {
+		break-inside: avoid-page;
+	}
+}
+
 
 
 @keyframes zoomIn {

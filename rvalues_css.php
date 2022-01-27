@@ -40,16 +40,16 @@
 		<h3>Screen and print</h3>
 		<p>Try printing this page to see the difference...</p>
 		<div class="Rparent">
-			<div class="R Ximin1 Xismall2">
+			<div class="R Ximin1 Xismall2 Xiprint2">
 				<code>.screenonly/.noprint</code>
 				<p>Elements with these classes will <strong>not</strong> show up when printing.</p>
 			</div>
-			<div class="R Ximin1 Xismall2">
+			<div class="R Ximin1 Xismall2 Xiprint2">
 				<code>.printonly/.noscreen</code>
 				<p>Elements with these classes will <strong>only</strong> show up when printing.</p>
 			</div>
 		</div>
-		<hr>
+		<hr class="noprint">
 		<div class="Rparent">
 			<div class="R Ximin1 Xismall2">
 				<div><code>&lt;p class="printonly"&gt;This is .printonly&lt;/p&gt;</code></div>
@@ -181,14 +181,14 @@
 		<div class="Rparent">
 			<div class="R Ximin1 Xismall2">
 				<div><code>.Ximin2</code></div>
-				<div class="test Rparent" style="height: 200px;">
+				<div class="test test-set-height Rparent">
 					<div class="R Ximin2 Yimin1 blue"></div>
 					<div class="R Ximin2 Yimin1 red"></div>
 				</div>
 			</div>
 			<div class="R Ximin1 Xismall2">
 				<div><code>.Yimin2</code></div>
-				<div class="test Rparent" style="height: 200px;">
+				<div class="test test-set-height Rparent">
 					<div class="R Yimin2 blue"></div>
 					<div class="R Yimin2 red"></div>
 				</div>
