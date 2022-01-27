@@ -7,11 +7,12 @@
 
 .test > * {
 	width: 100%;
-	height: 5rem;
 	vertical-align: middle;
 	text-align: center;
 	padding: 5rem 2rem;
+	height: 5rem;
 	border-radius: 2.5rem;
+	color: white;
 }
 .test.smaller > * {
 	height: 2.5rem;
@@ -21,22 +22,16 @@
 	.test > * {
 		height: 2rem;
 		border-radius: 1rem;
+		line-height: 1rem;
 	}
 	.test.smaller > * {
 		height: 1rem;
 		border-radius: 0.5rem;
+		line-height: 0.15rem;
 	}
 }
 
 
-.blue,
-.red,
-.green,
-.purple,
-.orange,
-.teal {
-	color: white;
-}
 .blue {
 	background: #29b6f6;
 }
