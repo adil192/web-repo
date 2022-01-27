@@ -3,7 +3,7 @@ function itemsRange(slider) {
 	$("#itemsRangeLabel").text("."+newClass);
 	$("div", "#itemsRangeTest").each(function() {
 		let box = $(this);
-		box.removeClass().addClass("R " + newClass + box.data("color"));
+		box.removeClass().addClass("R " + newClass + " " + box.data("color"));
 	});
 }
 function percentsRange(slider) {
@@ -19,6 +19,6 @@ function colsRange(slider) {
 	$("#colsRangeLabel").text("."+newClass);
 	$("div", "#colsRangeTest").each(function() {
 		let box = $(this);
-		box.removeClass().addClass("R " + newClass + box.data("color"));
+		box.removeClass().addClass("R " + newClass + " " + box.data("color"));
 	});
 }
