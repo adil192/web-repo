@@ -302,18 +302,18 @@
                     </div>
                     <span class="printonly">e.g. &nbsp;</span><code id="itemsRangeLabel">.Ximin4</code>
                     <div class="test Rparent" id="itemsRangeTest">
-                        <div class="R Ximin4 Ximin6 blue" data-color="blue"></div>
-                        <div class="R Ximin4 Ximin6 red" data-color="red"></div>
-                        <div class="R Ximin4 Ximin6 green" data-color="green"></div>
-                        <div class="R Ximin4 Ximin6 purple" data-color="purple"></div>
-                        <div class="R Ximin4 Ximin6 orange" data-color="orange"></div>
-                        <div class="R Ximin4 Ximin6 teal" data-color="teal"></div>
-                        <div class="R Ximin4 Ximin6 blue" data-color="blue"></div>
-                        <div class="R Ximin4 Ximin6 red" data-color="red"></div>
-                        <div class="R Ximin4 Ximin6 green" data-color="green"></div>
-                        <div class="R Ximin4 Ximin6 purple" data-color="purple"></div>
-                        <div class="R Ximin4 Ximin6 orange" data-color="orange"></div>
-                        <div class="R Ximin4 Ximin6 teal" data-color="teal"></div>
+                        <div class="R Ximin4 Xiprint6 blue" data-color="blue"></div>
+                        <div class="R Ximin4 Xiprint6 red" data-color="red"></div>
+                        <div class="R Ximin4 Xiprint6 green" data-color="green"></div>
+                        <div class="R Ximin4 Xiprint6 purple" data-color="purple"></div>
+                        <div class="R Ximin4 Xiprint6 orange" data-color="orange"></div>
+                        <div class="R Ximin4 Xiprint6 teal" data-color="teal"></div>
+                        <div class="R Ximin4 Xiprint6 blue" data-color="blue"></div>
+                        <div class="R Ximin4 Xiprint6 red" data-color="red"></div>
+                        <div class="R Ximin4 Xiprint6 green" data-color="green"></div>
+                        <div class="R Ximin4 Xiprint6 purple" data-color="purple"></div>
+                        <div class="R Ximin4 Xiprint6 orange" data-color="orange"></div>
+                        <div class="R Ximin4 Xiprint6 teal" data-color="teal"></div>
                     </div>
                 </div>
                 <div class="R Ximin1 Xismall2">
@@ -324,18 +324,18 @@
                     </div>
                     <span class="printonly">e.g. &nbsp;</span><code id="percentsRangeLabel">.Xpmin20</code>
                     <div class="test Rparent" id="percentsRangeTest">
-                        <div class="R Xpmin20 Ximin6 blue" data-color="blue"></div>
-                        <div class="R Xpmin20 Ximin6 red" data-color="red"></div>
-                        <div class="R Xpmin20 Ximin6 green" data-color="green"></div>
-                        <div class="R Xpmin20 Ximin6 purple" data-color="purple"></div>
-                        <div class="R Xpmin20 Ximin6 orange" data-color="orange"></div>
-                        <div class="R Xpmin20 Ximin6 teal" data-color="teal"></div>
-                        <div class="R Xpmin20 Ximin6 blue" data-color="blue"></div>
-                        <div class="R Xpmin20 Ximin6 red" data-color="red"></div>
-                        <div class="R Xpmin20 Ximin6 green" data-color="green"></div>
-                        <div class="R Xpmin20 Ximin6 purple" data-color="purple"></div>
-                        <div class="R Xpmin20 Ximin6 orange" data-color="orange"></div>
-                        <div class="R Xpmin20 Ximin6 teal" data-color="teal"></div>
+                        <div class="R Xpmin20 Xiprint6 blue" data-color="blue"></div>
+                        <div class="R Xpmin20 Xiprint6 red" data-color="red"></div>
+                        <div class="R Xpmin20 Xiprint6 green" data-color="green"></div>
+                        <div class="R Xpmin20 Xiprint6 purple" data-color="purple"></div>
+                        <div class="R Xpmin20 Xiprint6 orange" data-color="orange"></div>
+                        <div class="R Xpmin20 Xiprint6 teal" data-color="teal"></div>
+                        <div class="R Xpmin20 Xiprint6 blue" data-color="blue"></div>
+                        <div class="R Xpmin20 Xiprint6 red" data-color="red"></div>
+                        <div class="R Xpmin20 Xiprint6 green" data-color="green"></div>
+                        <div class="R Xpmin20 Xiprint6 purple" data-color="purple"></div>
+                        <div class="R Xpmin20 Xiprint6 orange" data-color="orange"></div>
+                        <div class="R Xpmin20 Xiprint6 teal" data-color="teal"></div>
                     </div>
                 </div>
                 <div class="R Ximin1 Xismall2">
@@ -346,36 +346,36 @@
                     </div>
                     <span class="printonly">e.g. &nbsp;</span><code id="colsRangeLabel">.Xrmin3</code>
                     <div class="test Rparent" id="colsRangeTest">
-                        <div class="R Xrmin3 Ximin6 blue" data-color="blue"></div>
-                        <div class="R Xrmin3 Ximin6 red" data-color="red"></div>
-                        <div class="R Xrmin3 Ximin6 green" data-color="green"></div>
-                        <div class="R Xrmin3 Ximin6 purple" data-color="purple"></div>
-                        <div class="R Xrmin3 Ximin6 orange" data-color="orange"></div>
-                        <div class="R Xrmin3 Ximin6 teal" data-color="teal"></div>
-                        <div class="R Xrmin3 Ximin6 blue" data-color="blue"></div>
-                        <div class="R Xrmin3 Ximin6 red" data-color="red"></div>
-                        <div class="R Xrmin3 Ximin6 green" data-color="green"></div>
-                        <div class="R Xrmin3 Ximin6 purple" data-color="purple"></div>
-                        <div class="R Xrmin3 Ximin6 orange" data-color="orange"></div>
-                        <div class="R Xrmin3 Ximin6 teal" data-color="teal"></div>
+                        <div class="R Xrmin3 Xiprint6 blue" data-color="blue"></div>
+                        <div class="R Xrmin3 Xiprint6 red" data-color="red"></div>
+                        <div class="R Xrmin3 Xiprint6 green" data-color="green"></div>
+                        <div class="R Xrmin3 Xiprint6 purple" data-color="purple"></div>
+                        <div class="R Xrmin3 Xiprint6 orange" data-color="orange"></div>
+                        <div class="R Xrmin3 Xiprint6 teal" data-color="teal"></div>
+                        <div class="R Xrmin3 Xiprint6 blue" data-color="blue"></div>
+                        <div class="R Xrmin3 Xiprint6 red" data-color="red"></div>
+                        <div class="R Xrmin3 Xiprint6 green" data-color="green"></div>
+                        <div class="R Xrmin3 Xiprint6 purple" data-color="purple"></div>
+                        <div class="R Xrmin3 Xiprint6 orange" data-color="orange"></div>
+                        <div class="R Xrmin3 Xiprint6 teal" data-color="teal"></div>
                     </div>
                 </div>
                 <div class="R Ximin1 Xismall2">
                     <div><code>.Ximin4.Xasmall</code></div>
                     <p>Setting the width to <code>a</code>uto does not need any arguments</p>
                     <div class="test Rparent">
-                        <div class="R Ximin4 Xasmall Ximin6 blue">the</div>
-                        <div class="R Ximin4 Xasmall Ximin6 red">quick</div>
-                        <div class="R Ximin4 Xasmall Ximin6 green">brown</div>
-                        <div class="R Ximin4 Xasmall Ximin6 purple">fox</div>
-                        <div class="R Ximin4 Xasmall Ximin6 orange">jumps</div>
-                        <div class="R Ximin4 Xasmall Ximin6 teal">over</div>
-                        <div class="R Ximin4 Xasmall Ximin6 blue">the</div>
-                        <div class="R Ximin4 Xasmall Ximin6 red">lazy</div>
-                        <div class="R Ximin4 Xasmall Ximin6 green">dog</div>
-                        <div class="R Ximin4 Xasmall Ximin6 purple">and</div>
-                        <div class="R Ximin4 Xasmall Ximin6 orange">more</div>
-                        <div class="R Ximin4 Xasmall Ximin6 teal">text</div>
+                        <div class="R Ximin4 Xasmall Xiprint6 blue">the</div>
+                        <div class="R Ximin4 Xasmall Xiprint6 red">quick</div>
+                        <div class="R Ximin4 Xasmall Xiprint6 green">brown</div>
+                        <div class="R Ximin4 Xasmall Xiprint6 purple">fox</div>
+                        <div class="R Ximin4 Xasmall Xiprint6 orange">jumps</div>
+                        <div class="R Ximin4 Xasmall Xiprint6 teal">over</div>
+                        <div class="R Ximin4 Xasmall Xiprint6 blue">the</div>
+                        <div class="R Ximin4 Xasmall Xiprint6 red">lazy</div>
+                        <div class="R Ximin4 Xasmall Xiprint6 green">dog</div>
+                        <div class="R Ximin4 Xasmall Xiprint6 purple">and</div>
+                        <div class="R Ximin4 Xasmall Xiprint6 orange">more</div>
+                        <div class="R Ximin4 Xasmall Xiprint6 teal">text</div>
                     </div>
                 </div>
             </div>
