@@ -26,13 +26,15 @@
 	
 	<?php createHeader(); ?>
 
-    <a href="rvalues_css.php" class="item container">
-        <h3>rvalues.css</h3>
-        <p>A simple stylesheet for responsive layouts.</p>
-        <div><code class="language-html" data-lang="html">&lt;link href="https://adil.hanney.org/repo/rvalues.css" rel="stylesheet"&gt;</code></div>
-        <br>
-        <button type="button" class="btn btn-primary">Click here for more</button>
-    </a>
+    <div class="container">
+        <a href="rvalues_css.php" class="item">
+            <h3>rvalues.css</h3>
+            <p>A simple stylesheet for responsive layouts.</p>
+            <div><code class="language-html" data-lang="html">&lt;link href="https://adil.hanney.org/repo/rvalues.css" rel="stylesheet"&gt;</code></div>
+            <br>
+            <button type="button" class="btn btn-primary">Click here for more</button>
+        </a>
+    </div>
 	
 	<script async defer src="assets/script.js" ></script>
 	<script async defer src="../assets/js/autotype.js"></script>
