@@ -16,7 +16,7 @@ $print: print !default;
 $COLS: r !default;
 $PERCENTS: p !default;
 $ITEMS: i !default;
-$ITEMS: a !default;
+$AUTOS: a !default;
 $DISPLAYS: D !default;
 
 $Rclasses: null !default; // upkeeps legacy code that doesn't use the .R class
@@ -80,7 +80,7 @@ $Rclasses: null !default; // upkeeps legacy code that doesn't use the .R class
 		$WH: if($w > 0, "X", "Y");
 		$widthheight: if($w > 0, "width", "height");
 		
-		$el: ".#{$WH}#{$ITEMS}#{$size}";
+		$el: ".#{$WH}#{$AUTOS}#{$size}";
 		$Rclasses: append($Rclasses, $el, comma) !global;
 		#{$el} {
 			#{$widthheight}: initial;
