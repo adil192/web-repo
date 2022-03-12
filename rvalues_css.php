@@ -8,7 +8,9 @@
 		"rvalues.css",
 		"A simple stylesheet for responsive layouts.",
 		"https://adil.hanney.org/repo/previews/rvalues_css.png",
-        null
+        null,
+        "2021-01-24",
+        "Software"
 	);
 	?>
 

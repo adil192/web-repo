@@ -8,7 +8,9 @@
 		"Adil's Repo",
 		"A repo containing a simple stylesheet for responsive layouts.",
 		"https://adil.hanney.org/repo/previews/index.png",
-        null
+        null,
+		"2021-01-24",
+		"Text"
 	);
 	?>
 
