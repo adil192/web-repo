@@ -14,7 +14,7 @@
 	);
 	?>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../assets/ext/bootstrap.5.1.3.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="../assets/css/global_styles.css">
 	<link rel="stylesheet" href="assets/repo.css">
@@ -25,8 +25,8 @@
 <body>
 	<!-- these scripts are needed immediately to animate page load -->
 	<?php customThemeScripts(); ?>
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js"></script>
+	<script src="../assets/ext/jquery.3.6.0.min.js"></script>
+	<script src="../assets/ext/js.cookie.2.2.1.min.js"></script>
 	
 	<?php createHeader(); ?>
 
