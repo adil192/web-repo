@@ -14,7 +14,7 @@
 	);
 	?>
 
-    <link href="../assets/ext/bootstrap.5.1.3.min.css" rel="stylesheet">
+    <link href="/assets/ext/bootstrap.5.1.3.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="../assets/css/global_styles.css">
 	<link rel="stylesheet" href="assets/repo.css">
@@ -25,8 +25,8 @@
 <body>
 	<!-- these scripts are needed immediately to animate page load -->
 	<?php customThemeScripts(); ?>
-	<script src="../assets/ext/jquery.3.6.0.min.js"></script>
-	<script src="../assets/ext/js.cookie.2.2.1.min.js"></script>
+	<script src="/assets/ext/jquery.3.6.0.min.js"></script>
+	<script src="/assets/ext/js.cookie.2.2.1.min.js"></script>
 	
 	<?php createHeader(); ?>
 
