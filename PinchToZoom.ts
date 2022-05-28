@@ -149,8 +149,8 @@ function clamp(num: number, min: number, max: number) {
 	return Math.min(Math.max(num, min), max);
 }
 
-export function allowPinchToZoom(elem: HTMLElement, isPinchToZoomAllowed: boolean = true): PinchToZoomHandler {
+export function allowPinchToZoom(elem: HTMLElement, isPinchToZoomAllowed: boolean = null): PinchToZoomHandler {
 	let handler = PinchToZoomHandler.Create(elem);
-	handler.enabled = isPinchToZoomAllowed;
+	if (isPinchToZoomAllowed != null) handler.enabled = isPinchToZoomAllowed;
 	return handler;
 }

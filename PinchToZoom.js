@@ -122,9 +122,10 @@ PinchToZoomHandler.handlers = new Map();
 function clamp(num, min, max) {
     return Math.min(Math.max(num, min), max);
 }
-export function allowPinchToZoom(elem, isPinchToZoomAllowed = true) {
+export function allowPinchToZoom(elem, isPinchToZoomAllowed = null) {
     let handler = PinchToZoomHandler.Create(elem);
-    handler.enabled = isPinchToZoomAllowed;
+    if (isPinchToZoomAllowed != null)
+        handler.enabled = isPinchToZoomAllowed;
     return handler;
 }
 //# sourceMappingURL=PinchToZoom.js.map
