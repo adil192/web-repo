@@ -125,14 +125,31 @@ pinchToZoomHandler = <b>allowPinchToZoom(square)</b>;
             <a href="#reflexive" class="btn btn-primary">next</a>
         </div>
         <div class="item" id="reflexive">
-            <h3><del>Demo (reflexive)</del></h3>
+            <h3>Reflexive</h3>
             <p>By default the element will not return to its original size after
-                the pinch ends.</p>
-
-            <p><b>This functionality is in progress.</b></p>
+                the pinch ends. This demo sets the <code>reflexive</code> flag to <code>true</code>.</p>
 
             <div class="test square-demo-container">
                 <div class="square orange" id="demo3_square"></div>
+            </div>
+
+            <div class="Rparent">
+                <div class="R Ximin1 Ximedium2">
+                    <h4>TypeScript</h4>
+                    <code class="language-ts" data-lang="ts">
+pinchToZoomHandler = <b>allowPinchToZoom(square)</b>;
+
+pinchToZoomHandler.<b>reflexive</b> = true;
+                    </code>
+                </div>
+                <div class="R Ximin1 Ximedium2">
+                    <h4>JavaScript</h4>
+                    <code class="language-js" data-lang="js">
+pinchToZoomHandler = <b>allowPinchToZoom(square)</b>;
+
+pinchToZoomHandler.<b>reflexive</b> = true;
+                    </code>
+                </div>
             </div>
 
             <a href="#top" class="btn btn-primary">Back to top</a>

@@ -7,6 +7,7 @@ window.addEventListener("load", function() {
     })
 
     setupDemo_eventHandler();
+    setupDemo_reflexive();
 });
 
 function setupDemo_eventHandler() {
@@ -19,4 +20,10 @@ function setupDemo_eventHandler() {
         scaleSpan.innerText = scale.toFixed(2) + "";
         offsetSpan.innerText = "(" + offset.x.toFixed(2) + ", " + offset.y.toFixed(2) + ")";
     }
+}
+
+function setupDemo_reflexive() {
+    let square = document.querySelector("#demo3_square");
+    let handler = allowPinchToZoom(square);
+    handler.reflexive = true;
 }

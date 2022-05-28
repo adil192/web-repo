@@ -25,6 +25,8 @@ class Vector2 {
 Vector2.Zero = new Vector2(0, 0);
 export class PinchToZoomHandler {
     constructor(elem) {
+        this.enabled = true;
+        this.reflexive = false;
         _PinchToZoomHandler_elem.set(this, void 0);
         _PinchToZoomHandler_active.set(this, void 0);
         this.startingScale = 1;
@@ -65,15 +67,21 @@ export class PinchToZoomHandler {
         this.onChange?.(scale, offset);
     }
     FixTransform() {
-        if (this.lastScale < 1.05) {
+        if (this.reflexive) {
             this.lastScale = 1;
             this.lastOffset = Vector2.Zero;
         }
         else {
-            let maxOffsetX = this.elem.offsetWidth * this.lastScale * 0.3;
-            let maxOffsetY = this.elem.offsetHeight * this.lastScale * 0.3;
-            this.lastOffset.x = clamp(this.lastOffset.x, -maxOffsetX, maxOffsetX);
-            this.lastOffset.y = clamp(this.lastOffset.y, -maxOffsetY, maxOffsetY);
+            if (this.lastScale < 1.05) {
+                this.lastScale = 1;
+                this.lastOffset = Vector2.Zero;
+            }
+            else {
+                let maxOffsetX = this.elem.offsetWidth * this.lastScale * 0.3;
+                let maxOffsetY = this.elem.offsetHeight * this.lastScale * 0.3;
+                this.lastOffset.x = clamp(this.lastOffset.x, -maxOffsetX, maxOffsetX);
+                this.lastOffset.y = clamp(this.lastOffset.y, -maxOffsetY, maxOffsetY);
+            }
         }
         this.elem.style.transitionDuration = "0.2s";
         this.SetTransform(this.lastScale, this.lastOffset);
