@@ -29,6 +29,16 @@
 	<?php createHeader(); ?>
 
     <div class="container">
+        <a href="PinchToZoom_js.php" class="item">
+            <h3>PinchToZoom.js</h3>
+            <p>A script to allow custom touch-screen pinch to zoom functionality on an element-by-element basis rather than zooming the whole page.</p>
+            <div><code class="language-html" data-lang="html">&lt;script src="https://adil.hanney.org/repo/PinchToZoom.js" type="module"&gt;&lt;/script&gt;</code></div>
+            <br>
+            <button type="button" class="btn btn-primary">Click here for more</button>
+        </a>
+    </div>
+
+    <div class="container">
         <a href="rvalues_css.php" class="item">
             <h3>rvalues.css</h3>
             <p>A simple stylesheet for responsive layouts.</p>
