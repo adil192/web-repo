@@ -34,10 +34,14 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	width: auto;
 	height: auto;
 	margin: 0;
 	pointer-events: none;
 	z-index: 10;
+	background: rgba(244,67,54, 0.9);
+	border-radius: 0.5em;
+	padding: 1em;
 }
 @media print {
 	.test > * {
@@ -57,26 +61,29 @@
 	height: auto;
 	aspect-ratio: 1;
 	margin: auto;
+
+	background: url("/favicon.svg") center center;
+	background-size: contain;
 }
 
 
 .blue {
-	background: #29b6f6;
+	background-color: #29b6f6;
 }
 .red {
-	background: #f44336;
+	background-color: #f44336;
 }
 .green {
-	background: #66bb6a;
+	background-color: #66bb6a;
 }
 .purple {
-	background: #ce93d8;
+	background-color: #ce93d8;
 }
 .orange {
-	background: #ffa726;
+	background-color: #ffa726;
 }
 .teal {
-	background: #13dda3;
+	background-color: #13dda3;
 }
 
 .test-set-height {
