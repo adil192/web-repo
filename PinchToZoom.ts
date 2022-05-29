@@ -37,9 +37,8 @@ export class PinchToZoomHandler {
 
 	public reflexive: boolean = false;
 
-	#elem: HTMLElement;
+	readonly #elem: HTMLElement;
 	public get elem() { return this.#elem; }
-	private set elem(elem: HTMLElement) { this.#elem = elem; }
 
 	#active: boolean;
 	// is currently pinching to zoom?
@@ -56,7 +55,7 @@ export class PinchToZoomHandler {
 	lastOffset: Vector2 = Vector2.Zero;
 
 	private constructor(elem: HTMLElement) {
-		this.elem = elem;
+		this.#elem = elem;
 		this.elem.style.willChange = "transform";
 
 		this.elem.addEventListener("touchstart", (event) => this.onTouchStart(event), {passive: true});

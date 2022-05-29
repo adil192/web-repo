@@ -1,13 +1,13 @@
-var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
-    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
-};
 var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
     if (kind === "m") throw new TypeError("Private method is not writable");
     if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
     return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
+};
+var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
 var _PinchToZoomHandler_enabled, _PinchToZoomHandler_elem, _PinchToZoomHandler_active;
 class Vector2 {
@@ -33,7 +33,7 @@ export class PinchToZoomHandler {
         this.startingOffset = Vector2.Zero;
         this.lastScale = 1;
         this.lastOffset = Vector2.Zero;
-        this.elem = elem;
+        __classPrivateFieldSet(this, _PinchToZoomHandler_elem, elem, "f");
         this.elem.style.willChange = "transform";
         this.elem.addEventListener("touchstart", (event) => this.onTouchStart(event), { passive: true });
         this.elem.addEventListener("touchend", (event) => this.onTouchEnd(event), { passive: true });
@@ -48,7 +48,6 @@ export class PinchToZoomHandler {
             this.End();
     }
     get elem() { return __classPrivateFieldGet(this, _PinchToZoomHandler_elem, "f"); }
-    set elem(elem) { __classPrivateFieldSet(this, _PinchToZoomHandler_elem, elem, "f"); }
     get active() { return __classPrivateFieldGet(this, _PinchToZoomHandler_active, "f"); }
     set active(active) { __classPrivateFieldSet(this, _PinchToZoomHandler_active, active, "f"); }
     Start(touches) {
