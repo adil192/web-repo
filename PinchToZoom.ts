@@ -25,8 +25,15 @@ class Vector2 {
 }
 
 export class PinchToZoomHandler {
-	// todo: is pinch to zoom enabled?
-	public enabled: boolean = true;
+	#enabled: boolean = true;
+	// is pinch to zoom enabled?
+	public get enabled(): boolean {
+		return this.#enabled;
+	}
+	public set enabled(enabled: boolean) {
+		this.#enabled = enabled;
+		if (!enabled && this.active) this.End();
+	}
 
 	public reflexive: boolean = false;
 
@@ -71,12 +78,12 @@ export class PinchToZoomHandler {
 		this.SetTransform(scale, offset);
 	}
 	private End() {
+		this.active = false;
+
 		this.FixTransform();
 
 		this.startingScale = this.lastScale;
 		this.startingOffset = this.lastOffset;
-
-		this.active = false;
 	}
 
 	private SetTransform(scale: number, offset: Vector2) {
@@ -125,6 +132,7 @@ export class PinchToZoomHandler {
 	}
 
 	private onTouchStart(event: TouchEvent) {
+		if (!this.enabled) return;
 		if (event.touches.length > 2) return this.End();
 		else if (event.touches.length == 2) return this.Start(event.touches);
 	}

@@ -9,7 +9,7 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
     return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
 };
-var _PinchToZoomHandler_elem, _PinchToZoomHandler_active;
+var _PinchToZoomHandler_enabled, _PinchToZoomHandler_elem, _PinchToZoomHandler_active;
 class Vector2 {
     constructor(x, y) {
         this.x = x;
@@ -25,7 +25,7 @@ class Vector2 {
 Vector2.Zero = new Vector2(0, 0);
 export class PinchToZoomHandler {
     constructor(elem) {
-        this.enabled = true;
+        _PinchToZoomHandler_enabled.set(this, true);
         this.reflexive = false;
         _PinchToZoomHandler_elem.set(this, void 0);
         _PinchToZoomHandler_active.set(this, void 0);
@@ -38,6 +38,14 @@ export class PinchToZoomHandler {
         this.elem.addEventListener("touchstart", (event) => this.onTouchStart(event), { passive: true });
         this.elem.addEventListener("touchend", (event) => this.onTouchEnd(event), { passive: true });
         this.elem.addEventListener("touchmove", (event) => this.onTouchMove(event), { passive: true });
+    }
+    get enabled() {
+        return __classPrivateFieldGet(this, _PinchToZoomHandler_enabled, "f");
+    }
+    set enabled(enabled) {
+        __classPrivateFieldSet(this, _PinchToZoomHandler_enabled, enabled, "f");
+        if (!enabled && this.active)
+            this.End();
     }
     get elem() { return __classPrivateFieldGet(this, _PinchToZoomHandler_elem, "f"); }
     set elem(elem) { __classPrivateFieldSet(this, _PinchToZoomHandler_elem, elem, "f"); }
@@ -56,10 +64,10 @@ export class PinchToZoomHandler {
         this.SetTransform(scale, offset);
     }
     End() {
+        this.active = false;
         this.FixTransform();
         this.startingScale = this.lastScale;
         this.startingOffset = this.lastOffset;
-        this.active = false;
     }
     SetTransform(scale, offset) {
         this.lastScale = scale;
@@ -97,6 +105,8 @@ export class PinchToZoomHandler {
         return new Vector2((touch0.screenX + touch1.screenX) / 2, (touch0.screenY + touch1.screenY) / 2);
     }
     onTouchStart(event) {
+        if (!this.enabled)
+            return;
         if (event.touches.length > 2)
             return this.End();
         else if (event.touches.length == 2)
@@ -118,7 +128,7 @@ export class PinchToZoomHandler {
         return newHandler;
     }
 }
-_PinchToZoomHandler_elem = new WeakMap(), _PinchToZoomHandler_active = new WeakMap();
+_PinchToZoomHandler_enabled = new WeakMap(), _PinchToZoomHandler_elem = new WeakMap(), _PinchToZoomHandler_active = new WeakMap();
 PinchToZoomHandler.handlers = new Map();
 function clamp(num, min, max) {
     return Math.min(Math.max(num, min), max);
