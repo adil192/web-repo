@@ -34,6 +34,7 @@ export class PinchToZoomHandler {
         this.lastScale = 1;
         this.lastOffset = Vector2.Zero;
         this.elem = elem;
+        this.elem.style.willChange = "transform";
         this.elem.addEventListener("touchstart", (event) => this.onTouchStart(event), { passive: true });
         this.elem.addEventListener("touchend", (event) => this.onTouchEnd(event), { passive: true });
         this.elem.addEventListener("touchmove", (event) => this.onTouchMove(event), { passive: true });

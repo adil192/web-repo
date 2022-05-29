@@ -50,6 +50,7 @@ export class PinchToZoomHandler {
 
 	private constructor(elem: HTMLElement) {
 		this.elem = elem;
+		this.elem.style.willChange = "transform";
 
 		this.elem.addEventListener("touchstart", (event) => this.onTouchStart(event), {passive: true});
 		this.elem.addEventListener("touchend", (event) => this.onTouchEnd(event), {passive: true});
