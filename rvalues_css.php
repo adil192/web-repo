@@ -34,6 +34,10 @@
         <div class="item">
             <h3>rvalues.css</h3>
             <p>A simple stylesheet for facilitating responsive layouts.</p>
+            <p class="alert">2022 Update: This uses a bootstrap-like approach to dividing widths/heights, whereas
+                nowadays you may get much better use out of a
+                "<code class="language-css" data-lang="css">display: flex;</code>"
+                based approach.</p>
             <div><code class="language-html" data-lang="html">&lt;link href="https://adil.hanney.org/repo/rvalues.css" rel="stylesheet"&gt;</code></div>
             <p>CSS: <a href="rvalues.css">rvalues.css</a>
                 <br>SCSS: <a href="rvalues.scss">rvalues.scss</a></p>
