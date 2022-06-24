@@ -33,7 +33,7 @@
     <div class="container">
         <div class="item">
             <h3>rvalues.css</h3>
-            <p>A simple stylesheet for responsive layouts.</p>
+            <p>A simple stylesheet for facilitating responsive layouts.</p>
             <div><code class="language-html" data-lang="html">&lt;link href="https://adil.hanney.org/repo/rvalues.css" rel="stylesheet"&gt;</code></div>
             <p>CSS: <a href="rvalues.css">rvalues.css</a>
                 <br>SCSS: <a href="rvalues.scss">rvalues.scss</a></p>
