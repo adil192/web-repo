@@ -144,7 +144,7 @@ export class PinchToZoomHandler {
         let scale_diff = this.lastTransform.scale - scale;
         let center = getRectCenter(this.elem.getBoundingClientRect());
         let centerToMouse = new Vector2(event.clientX, event.clientY).Subtract(center).Multiply(1 / this.lastTransform.scale);
-        let offset = this.lastTransform.offset.Add(centerToMouse.Multiply(scale_diff / this.lastTransform.scale));
+        let offset = this.lastTransform.offset.Add(centerToMouse.Multiply(scale_diff / this.lastTransform.scale * 0.7));
         this.SetTransform(new Matrix2x2(scale, offset));
         clearTimeout(this.wheelZoomTimeout);
         this.wheelZoomTimeout = setTimeout(() => this.End(), 200);
