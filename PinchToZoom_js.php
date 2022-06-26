@@ -152,6 +152,38 @@ pinchToZoomHandler.<b>reflexive</b> = true;
                 </div>
             </div>
 
+            <a href="#scrollwheel" class="btn btn-primary">next</a>
+        </div>
+        <div class="item" id="scrollwheel">
+            <h3>Zooming with the scroll wheel (beta)</h3>
+            <p>By default, desktop users can zoom in and out using the scroll wheel.
+                This functionality sometimes might not be needed on desktop &dash; or you don't want to get in the way
+                of scrolling through the page &dash; in which case you can set the <code>isScrollZoomEnabled</code>
+                flag to <code>false</code>.</p>
+
+            <div class="test square-demo-container">
+                <div class="square teal" id="demo4_square"></div>
+            </div>
+
+            <div class="Rparent">
+                <div class="R Ximin1 Ximedium2">
+                    <h4>TypeScript</h4>
+                    <code class="language-ts" data-lang="ts">
+pinchToZoomHandler = <b>allowPinchToZoom(square)</b>;
+
+pinchToZoomHandler.<b>isScrollZoomEnabled</b> = false;
+                    </code>
+                </div>
+                <div class="R Ximin1 Ximedium2">
+                    <h4>JavaScript</h4>
+                    <code class="language-js" data-lang="js">
+pinchToZoomHandler = <b>allowPinchToZoom(square)</b>;
+
+pinchToZoomHandler.<b>isScrollZoomEnabled</b> = false;
+                    </code>
+                </div>
+            </div>
+
             <a href="#top" class="btn btn-primary">Back to top</a>
         </div>
     </div>

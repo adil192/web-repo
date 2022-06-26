@@ -8,6 +8,7 @@ window.addEventListener("load", function() {
 
     setupDemo_eventHandler();
     setupDemo_reflexive();
+    setupDemo_scrollWheel();
 });
 
 function setupDemo_eventHandler() {
@@ -26,4 +27,10 @@ function setupDemo_reflexive() {
     let square = document.querySelector("#demo3_square");
     let handler = allowPinchToZoom(square);
     handler.reflexive = true;
+}
+
+function setupDemo_scrollWheel() {
+    let square = document.querySelector("#demo4_square");
+    let handler = allowPinchToZoom(square);
+    handler.isScrollZoomEnabled = false;
 }
