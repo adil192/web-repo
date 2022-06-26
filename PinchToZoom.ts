@@ -104,7 +104,7 @@ export class PinchToZoomHandler {
 		this.elem.addEventListener("touchstart", (event) => this.onTouchStart(event), {passive: true});
 		this.elem.addEventListener("touchend", (event) => this.onTouchEnd(event), {passive: true});
 		this.elem.addEventListener("touchmove", (event) => this.onTouchMove(event), {passive: true});
-		this.elem.addEventListener("wheel", (event) => this.onWheel(event), {passive: true});
+		this.elem.addEventListener("wheel", (event) => this.onWheel(event), { passive: false });
 	}
 
 	private Start(touches: TouchList) {
