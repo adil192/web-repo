@@ -21,6 +21,9 @@ class Vector2 {
     Subtract(v) {
         return new Vector2(this.x - v.x, this.y - v.y);
     }
+    Multiply(c) {
+        return new Vector2(this.x * c, this.y * c);
+    }
 }
 Vector2.Zero = new Vector2(0, 0);
 class Matrix2x2 {
@@ -43,12 +46,15 @@ export class PinchToZoomHandler {
         this.pinchStartInfo = Matrix2x2.Identity;
         this.startingTransform = Matrix2x2.Identity;
         this.lastTransform = Matrix2x2.Identity;
+        this.wheelZoomSpeed = 0.1 / 141;
+        this.wheelZoomTimeout = null;
         __classPrivateFieldSet(this, _PinchToZoomHandler_elem, elem, "f");
         this.elem.style.willChange = "transform";
         this.elem.style.touchAction = "pan-x pan-y";
         this.elem.addEventListener("touchstart", (event) => this.onTouchStart(event), { passive: true });
         this.elem.addEventListener("touchend", (event) => this.onTouchEnd(event), { passive: true });
         this.elem.addEventListener("touchmove", (event) => this.onTouchMove(event), { passive: true });
+        this.elem.addEventListener("wheel", (event) => this.onWheel(event), { passive: true });
     }
     get enabled() {
         return __classPrivateFieldGet(this, _PinchToZoomHandler_enabled, "f");
@@ -121,6 +127,18 @@ export class PinchToZoomHandler {
         if (!this.active)
             return;
         this.Update(event.touches);
+    }
+    onWheel(event) {
+        if (!this.enabled)
+            return;
+        event.preventDefault();
+        if (event.deltaY == 0)
+            return;
+        let scale = this.lastTransform.scale;
+        scale *= 1 - event.deltaY * this.wheelZoomSpeed;
+        this.SetTransform(new Matrix2x2(scale, Vector2.Zero));
+        clearTimeout(this.wheelZoomTimeout);
+        this.wheelZoomTimeout = setTimeout(() => this.End(), 200);
     }
     static Create(elem) {
         if (this.handlers.has(elem))

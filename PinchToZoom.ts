@@ -42,6 +42,12 @@ class Vector2 {
 			this.y - v.y
 		)
 	}
+	public Multiply(c: number): Vector2 {
+		return new Vector2(
+			this.x * c,
+			this.y * c
+		);
+	}
 }
 
 class Matrix2x2 {
@@ -95,6 +101,7 @@ export class PinchToZoomHandler {
 		this.elem.addEventListener("touchstart", (event) => this.onTouchStart(event), {passive: true});
 		this.elem.addEventListener("touchend", (event) => this.onTouchEnd(event), {passive: true});
 		this.elem.addEventListener("touchmove", (event) => this.onTouchMove(event), {passive: true});
+		this.elem.addEventListener("wheel", (event) => this.onWheel(event), {passive: true});
 	}
 
 	private Start(touches: TouchList) {
@@ -172,6 +179,25 @@ export class PinchToZoomHandler {
 	private onTouchMove(event: TouchEvent) {
 		if (!this.active) return;
 		this.Update(event.touches);
+	}
+
+	wheelZoomSpeed: number = 0.1 / 141;
+	wheelZoomTimeout: number = null;
+	private onWheel(event: WheelEvent) {
+		// todo: use non-zero offset
+		if (!this.enabled) return;
+		event.preventDefault();
+
+		if (event.deltaY == 0) return;
+
+		let scale = this.lastTransform.scale;
+
+		scale *= 1 - event.deltaY * this.wheelZoomSpeed; // negative deltaY is zoom in, positive is zoom out
+
+		this.SetTransform(new Matrix2x2(scale, Vector2.Zero));
+
+		clearTimeout(this.wheelZoomTimeout);
+		this.wheelZoomTimeout = setTimeout(() => this.End(), 200);
 	}
 
 	private static handlers: Map<HTMLElement, PinchToZoomHandler> = new Map<HTMLElement, PinchToZoomHandler>();
