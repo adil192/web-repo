@@ -9,6 +9,7 @@
 a.item {
 	display: block;
 	text-decoration: none;
+	color: inherit;
 }
 
 @media print {
