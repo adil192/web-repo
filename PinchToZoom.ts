@@ -44,6 +44,23 @@ class Vector2 {
 	}
 }
 
+class Matrix2x2 {
+	public scale: number;
+	public offset: Vector2;
+
+	static readonly Zero: Matrix2x2 = new Matrix2x2(0, Vector2.Zero);
+	static readonly Identity: Matrix2x2 = new Matrix2x2(1, Vector2.Zero);
+
+	constructor(scale: number, origin: Vector2) {
+		this.scale = scale;
+		this.offset = origin;
+	}
+
+	public ToCssTransform(): string {
+		return `scale(${this.scale}) translate(${this.offset.x}px, ${this.offset.y}px)`;
+	}
+}
+
 export class PinchToZoomHandler {
 	#enabled: boolean = true;
 	// is pinch to zoom enabled?
@@ -66,13 +83,9 @@ export class PinchToZoomHandler {
 	private set active(active: boolean) { this.#active = active; }
 	public onChange?: (scale: number, offset: Vector2) => void;
 
-	startingPinchSize: number;
-	startingPinchPosition: Vector2;
-
-	startingScale: number = 1;
-	startingOffset: Vector2 = Vector2.Zero;
-	lastScale: number = 1;
-	lastOffset: Vector2 = Vector2.Zero;
+	pinchStartInfo: Matrix2x2 = Matrix2x2.Identity;
+	startingTransform: Matrix2x2 = Matrix2x2.Identity;
+	lastTransform: Matrix2x2 = Matrix2x2.Identity;
 
 	private constructor(elem: HTMLElement) {
 		this.#elem = elem;
@@ -85,70 +98,67 @@ export class PinchToZoomHandler {
 	}
 
 	private Start(touches: TouchList) {
-		this.startingPinchSize = PinchToZoomHandler.getPinchSize(touches);
-		this.startingPinchPosition = PinchToZoomHandler.getPinchPosition(touches);
+		this.pinchStartInfo = PinchToZoomHandler.getPinchInfo(touches);
 		this.active = true;
 		this.elem.style.transitionProperty = "transform";
 		this.elem.style.transitionDuration = "0s";
 	}
 	private Update(touches: TouchList) {
-		let scale = PinchToZoomHandler.getPinchSize(touches) / this.startingPinchSize * this.startingScale;
-		let offset = PinchToZoomHandler.getPinchPosition(touches).Subtract(this.startingPinchPosition).Add(this.startingOffset);
+		let currentPinchInfo = PinchToZoomHandler.getPinchInfo(touches);
 
-		this.SetTransform(scale, offset);
+		let transform = new Matrix2x2(
+			currentPinchInfo.scale / this.pinchStartInfo.scale * this.startingTransform.scale,
+			currentPinchInfo.offset.Subtract(this.pinchStartInfo.offset).Add(this.startingTransform.offset)
+		);
+		this.SetTransform(transform);
 	}
 	private End() {
 		this.active = false;
 
 		this.FixTransform();
 
-		this.startingScale = this.lastScale;
-		this.startingOffset = this.lastOffset;
+		this.startingTransform = this.lastTransform;
 	}
 
-	private SetTransform(scale: number, offset: Vector2) {
-		this.lastScale = scale;
-		this.lastOffset = offset;
+	private SetTransform(transform: Matrix2x2) {
+		this.lastTransform = transform;
 
-		this.elem.style.transform = `scale(${scale}) translate(${offset.x}px, ${offset.y}px)`;
+		this.elem.style.transform = transform.ToCssTransform();
 
-		this.onChange?.(scale, offset);
+		this.onChange?.(transform.scale, transform.offset);
 	}
 	private FixTransform() {
 		if (this.reflexive) {
-			this.lastScale = 1;
-			this.lastOffset = Vector2.Zero;
+			this.lastTransform = Matrix2x2.Identity;
 		} else {
-			if (this.lastScale < 1.05) {
-				this.lastScale = 1;
-				this.lastOffset = Vector2.Zero;
+			if (this.lastTransform.scale < 1.05) {
+				this.lastTransform = Matrix2x2.Identity;
 			} else {
-				let maxOffsetX = this.elem.offsetWidth * this.lastScale * 0.3;
-				let maxOffsetY = this.elem.offsetHeight * this.lastScale * 0.3;
-				this.lastOffset.x = clamp(this.lastOffset.x, -maxOffsetX, maxOffsetX);
-				this.lastOffset.y = clamp(this.lastOffset.y, -maxOffsetY, maxOffsetY);
+				let maxOffsetX = this.elem.offsetWidth * this.lastTransform.scale * 0.3;
+				let maxOffsetY = this.elem.offsetHeight * this.lastTransform.scale * 0.3;
+				this.lastTransform.offset = new Vector2(
+					clamp(this.lastTransform.offset.x, -maxOffsetX, maxOffsetX),
+					clamp(this.lastTransform.offset.y, -maxOffsetY, maxOffsetY)
+				);
 			}
 		}
 
 		this.elem.style.transitionDuration = "0.2s";
-		this.SetTransform(this.lastScale, this.lastOffset);
+		this.SetTransform(this.lastTransform);
 	}
 
-	private static getPinchSize(touches: TouchList): number {
+	private static getPinchInfo(touches: TouchList): Matrix2x2 {
 		let touch0 = touches.item(0),
 			touch1 = touches.item(1);
-		return Math.sqrt(
+		let size = Math.sqrt(
 			Math.pow(touch0.screenX - touch1.screenX, 2) +
 			Math.pow(touch0.screenY - touch1.screenY, 2)
 		);
-	}
-	private static getPinchPosition(touches: TouchList): Vector2 {
-		let touch0 = touches.item(0),
-			touch1 = touches.item(1);
-		return new Vector2(
+		let position = new Vector2(
 			(touch0.screenX + touch1.screenX) / 2,
 			(touch0.screenY + touch1.screenY) / 2,
 		);
+		return new Matrix2x2(size, position);
 	}
 
 	private onTouchStart(event: TouchEvent) {

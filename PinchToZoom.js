@@ -23,16 +23,26 @@ class Vector2 {
     }
 }
 Vector2.Zero = new Vector2(0, 0);
+class Matrix2x2 {
+    constructor(scale, origin) {
+        this.scale = scale;
+        this.offset = origin;
+    }
+    ToCssTransform() {
+        return `scale(${this.scale}) translate(${this.offset.x}px, ${this.offset.y}px)`;
+    }
+}
+Matrix2x2.Zero = new Matrix2x2(0, Vector2.Zero);
+Matrix2x2.Identity = new Matrix2x2(1, Vector2.Zero);
 export class PinchToZoomHandler {
     constructor(elem) {
         _PinchToZoomHandler_enabled.set(this, true);
         this.reflexive = false;
         _PinchToZoomHandler_elem.set(this, void 0);
         _PinchToZoomHandler_active.set(this, void 0);
-        this.startingScale = 1;
-        this.startingOffset = Vector2.Zero;
-        this.lastScale = 1;
-        this.lastOffset = Vector2.Zero;
+        this.pinchStartInfo = Matrix2x2.Identity;
+        this.startingTransform = Matrix2x2.Identity;
+        this.lastTransform = Matrix2x2.Identity;
         __classPrivateFieldSet(this, _PinchToZoomHandler_elem, elem, "f");
         this.elem.style.willChange = "transform";
         this.elem.style.touchAction = "pan-x pan-y";
@@ -52,57 +62,49 @@ export class PinchToZoomHandler {
     get active() { return __classPrivateFieldGet(this, _PinchToZoomHandler_active, "f"); }
     set active(active) { __classPrivateFieldSet(this, _PinchToZoomHandler_active, active, "f"); }
     Start(touches) {
-        this.startingPinchSize = PinchToZoomHandler.getPinchSize(touches);
-        this.startingPinchPosition = PinchToZoomHandler.getPinchPosition(touches);
+        this.pinchStartInfo = PinchToZoomHandler.getPinchInfo(touches);
         this.active = true;
         this.elem.style.transitionProperty = "transform";
         this.elem.style.transitionDuration = "0s";
     }
     Update(touches) {
-        let scale = PinchToZoomHandler.getPinchSize(touches) / this.startingPinchSize * this.startingScale;
-        let offset = PinchToZoomHandler.getPinchPosition(touches).Subtract(this.startingPinchPosition).Add(this.startingOffset);
-        this.SetTransform(scale, offset);
+        let currentPinchInfo = PinchToZoomHandler.getPinchInfo(touches);
+        let transform = new Matrix2x2(currentPinchInfo.scale / this.pinchStartInfo.scale * this.startingTransform.scale, currentPinchInfo.offset.Subtract(this.pinchStartInfo.offset).Add(this.startingTransform.offset));
+        this.SetTransform(transform);
     }
     End() {
         this.active = false;
         this.FixTransform();
-        this.startingScale = this.lastScale;
-        this.startingOffset = this.lastOffset;
+        this.startingTransform = this.lastTransform;
     }
-    SetTransform(scale, offset) {
-        this.lastScale = scale;
-        this.lastOffset = offset;
-        this.elem.style.transform = `scale(${scale}) translate(${offset.x}px, ${offset.y}px)`;
-        this.onChange?.(scale, offset);
+    SetTransform(transform) {
+        this.lastTransform = transform;
+        this.elem.style.transform = transform.ToCssTransform();
+        this.onChange?.(transform.scale, transform.offset);
     }
     FixTransform() {
         if (this.reflexive) {
-            this.lastScale = 1;
-            this.lastOffset = Vector2.Zero;
+            this.lastTransform = Matrix2x2.Identity;
         }
         else {
-            if (this.lastScale < 1.05) {
-                this.lastScale = 1;
-                this.lastOffset = Vector2.Zero;
+            if (this.lastTransform.scale < 1.05) {
+                this.lastTransform = Matrix2x2.Identity;
             }
             else {
-                let maxOffsetX = this.elem.offsetWidth * this.lastScale * 0.3;
-                let maxOffsetY = this.elem.offsetHeight * this.lastScale * 0.3;
-                this.lastOffset.x = clamp(this.lastOffset.x, -maxOffsetX, maxOffsetX);
-                this.lastOffset.y = clamp(this.lastOffset.y, -maxOffsetY, maxOffsetY);
+                let maxOffsetX = this.elem.offsetWidth * this.lastTransform.scale * 0.3;
+                let maxOffsetY = this.elem.offsetHeight * this.lastTransform.scale * 0.3;
+                this.lastTransform.offset = new Vector2(clamp(this.lastTransform.offset.x, -maxOffsetX, maxOffsetX), clamp(this.lastTransform.offset.y, -maxOffsetY, maxOffsetY));
             }
         }
         this.elem.style.transitionDuration = "0.2s";
-        this.SetTransform(this.lastScale, this.lastOffset);
+        this.SetTransform(this.lastTransform);
     }
-    static getPinchSize(touches) {
+    static getPinchInfo(touches) {
         let touch0 = touches.item(0), touch1 = touches.item(1);
-        return Math.sqrt(Math.pow(touch0.screenX - touch1.screenX, 2) +
+        let size = Math.sqrt(Math.pow(touch0.screenX - touch1.screenX, 2) +
             Math.pow(touch0.screenY - touch1.screenY, 2));
-    }
-    static getPinchPosition(touches) {
-        let touch0 = touches.item(0), touch1 = touches.item(1);
-        return new Vector2((touch0.screenX + touch1.screenX) / 2, (touch0.screenY + touch1.screenY) / 2);
+        let position = new Vector2((touch0.screenX + touch1.screenX) / 2, (touch0.screenY + touch1.screenY) / 2);
+        return new Matrix2x2(size, position);
     }
     onTouchStart(event) {
         if (!this.enabled)
