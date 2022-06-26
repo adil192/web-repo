@@ -140,9 +140,12 @@ export class PinchToZoomHandler {
         event.preventDefault();
         if (event.deltaY == 0)
             return;
-        let scale = this.lastTransform.scale;
-        scale *= 1 - event.deltaY * this.wheelZoomSpeed;
-        this.SetTransform(new Matrix2x2(scale, Vector2.Zero));
+        let scale = this.lastTransform.scale * (1 - event.deltaY * this.wheelZoomSpeed);
+        let scale_diff = this.lastTransform.scale - scale;
+        let center = getRectCenter(this.elem.getBoundingClientRect());
+        let centerToMouse = new Vector2(event.clientX, event.clientY).Subtract(center).Multiply(1 / this.lastTransform.scale);
+        let offset = this.lastTransform.offset.Add(centerToMouse.Multiply(scale_diff / this.lastTransform.scale));
+        this.SetTransform(new Matrix2x2(scale, offset));
         clearTimeout(this.wheelZoomTimeout);
         this.wheelZoomTimeout = setTimeout(() => this.End(), 200);
     }
@@ -158,6 +161,9 @@ _PinchToZoomHandler_enabled = new WeakMap(), _PinchToZoomHandler_elem = new Weak
 PinchToZoomHandler.handlers = new Map();
 function clamp(num, min, max) {
     return Math.min(Math.max(num, min), max);
+}
+function getRectCenter(rect) {
+    return new Vector2(rect.left + rect.width / 2, rect.top + rect.height / 2);
 }
 export function allowPinchToZoom(elem, isPinchToZoomAllowed = null) {
     let handler = PinchToZoomHandler.Create(elem);

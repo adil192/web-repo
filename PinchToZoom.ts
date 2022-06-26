@@ -189,18 +189,22 @@ export class PinchToZoomHandler {
 	wheelZoomSpeed: number = 0.1 / 141;
 	wheelZoomTimeout: number = null;
 	private onWheel(event: WheelEvent) {
-		// todo: use non-zero offset
 		if (!this.enabled) return;
 		if (!this.isScrollZoomEnabled) return;
 		event.preventDefault();
 
 		if (event.deltaY == 0) return;
 
-		let scale = this.lastTransform.scale;
+		// negative deltaY = scroll up = zoom in
+		let scale = this.lastTransform.scale * (1 - event.deltaY * this.wheelZoomSpeed);
+		let scale_diff = this.lastTransform.scale - scale;
 
-		scale *= 1 - event.deltaY * this.wheelZoomSpeed; // negative deltaY is zoom in, positive is zoom out
+		let center = getRectCenter(this.elem.getBoundingClientRect());
+		let centerToMouse = new Vector2(event.clientX, event.clientY).Subtract(center).Multiply(1 / this.lastTransform.scale);
 
-		this.SetTransform(new Matrix2x2(scale, Vector2.Zero));
+		let offset = this.lastTransform.offset.Add(centerToMouse.Multiply(scale_diff / this.lastTransform.scale));
+
+		this.SetTransform(new Matrix2x2(scale, offset));
 
 		clearTimeout(this.wheelZoomTimeout);
 		this.wheelZoomTimeout = setTimeout(() => this.End(), 200);
@@ -218,6 +222,10 @@ export class PinchToZoomHandler {
 
 function clamp(num: number, min: number, max: number) {
 	return Math.min(Math.max(num, min), max);
+}
+
+function getRectCenter(rect: DOMRect): Vector2 {
+	return new Vector2(rect.left + rect.width / 2, rect.top + rect.height / 2);
 }
 
 export function allowPinchToZoom(elem: HTMLElement, isPinchToZoomAllowed: boolean = null): PinchToZoomHandler {
