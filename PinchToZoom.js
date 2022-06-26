@@ -40,6 +40,7 @@ Matrix2x2.Identity = new Matrix2x2(1, Vector2.Zero);
 export class PinchToZoomHandler {
     constructor(elem) {
         _PinchToZoomHandler_enabled.set(this, true);
+        this.isScrollZoomEnabled = true;
         this.reflexive = false;
         _PinchToZoomHandler_elem.set(this, void 0);
         _PinchToZoomHandler_active.set(this, void 0);
@@ -130,6 +131,8 @@ export class PinchToZoomHandler {
     }
     onWheel(event) {
         if (!this.enabled)
+            return;
+        if (!this.isScrollZoomEnabled)
             return;
         event.preventDefault();
         if (event.deltaY == 0)

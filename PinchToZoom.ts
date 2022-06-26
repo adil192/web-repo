@@ -77,6 +77,7 @@ export class PinchToZoomHandler {
 		this.#enabled = enabled;
 		if (!enabled && this.active) this.End();
 	}
+	public isScrollZoomEnabled: boolean = true;
 
 	public reflexive: boolean = false;
 
@@ -186,6 +187,7 @@ export class PinchToZoomHandler {
 	private onWheel(event: WheelEvent) {
 		// todo: use non-zero offset
 		if (!this.enabled) return;
+		if (!this.isScrollZoomEnabled) return;
 		event.preventDefault();
 
 		if (event.deltaY == 0) return;
