@@ -81,6 +81,8 @@ export class PinchToZoomHandler {
 
 	public reflexive: boolean = false;
 
+	public maxScale: number = 5;
+
 	readonly #elem: HTMLElement;
 	public get elem() { return this.#elem; }
 
@@ -142,6 +144,8 @@ export class PinchToZoomHandler {
 			if (this.lastTransform.scale < 1.05) {
 				this.lastTransform = Matrix2x2.Identity;
 			} else {
+				if (this.lastTransform.scale > this.maxScale) this.lastTransform.scale = this.maxScale;
+
 				let maxOffsetX = this.elem.offsetWidth * this.lastTransform.scale * 0.3;
 				let maxOffsetY = this.elem.offsetHeight * this.lastTransform.scale * 0.3;
 				this.lastTransform.offset = new Vector2(

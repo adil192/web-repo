@@ -42,6 +42,7 @@ export class PinchToZoomHandler {
         _PinchToZoomHandler_enabled.set(this, true);
         this.isScrollZoomEnabled = true;
         this.reflexive = false;
+        this.maxScale = 5;
         _PinchToZoomHandler_elem.set(this, void 0);
         _PinchToZoomHandler_active.set(this, void 0);
         this.pinchStartInfo = Matrix2x2.Identity;
@@ -98,6 +99,8 @@ export class PinchToZoomHandler {
                 this.lastTransform = Matrix2x2.Identity;
             }
             else {
+                if (this.lastTransform.scale > this.maxScale)
+                    this.lastTransform.scale = this.maxScale;
                 let maxOffsetX = this.elem.offsetWidth * this.lastTransform.scale * 0.3;
                 let maxOffsetY = this.elem.offsetHeight * this.lastTransform.scale * 0.3;
                 this.lastTransform.offset = new Vector2(clamp(this.lastTransform.offset.x, -maxOffsetX, maxOffsetX), clamp(this.lastTransform.offset.y, -maxOffsetY, maxOffsetY));
