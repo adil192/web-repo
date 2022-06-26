@@ -140,6 +140,8 @@ export class PinchToZoomHandler {
         event.preventDefault();
         if (event.deltaY == 0)
             return;
+        this.elem.style.transitionProperty = "transform";
+        this.elem.style.transitionDuration = "0s";
         let scale = this.lastTransform.scale * (1 - event.deltaY * this.wheelZoomSpeed);
         let scale_diff = this.lastTransform.scale - scale;
         let center = getRectCenter(this.elem.getBoundingClientRect());

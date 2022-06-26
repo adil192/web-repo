@@ -192,8 +192,10 @@ export class PinchToZoomHandler {
 		if (!this.enabled) return;
 		if (!this.isScrollZoomEnabled) return;
 		event.preventDefault();
-
 		if (event.deltaY == 0) return;
+
+		this.elem.style.transitionProperty = "transform";
+		this.elem.style.transitionDuration = "0s";
 
 		// negative deltaY = scroll up = zoom in
 		let scale = this.lastTransform.scale * (1 - event.deltaY * this.wheelZoomSpeed);
