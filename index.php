@@ -32,10 +32,6 @@
         <a href="PinchToZoom_js.php" class="item">
             <h3>PinchToZoom.js</h3>
             <p>A script to allow custom touch-screen pinch to zoom functionality on an element-by-element basis rather than zooming the whole page.</p>
-            <p class="mb-0">Todo:</p>
-            <ul>
-                <li>Support zooming with mouse scroll</li>
-            </ul>
             <div><code class="language-html" data-lang="html">&lt;script src="https://adil.hanney.org/repo/PinchToZoom.js" type="module"&gt;&lt;/script&gt;</code></div>
             <br>
             <button type="button" class="btn btn-primary">Click here for more</button>
