@@ -6,7 +6,7 @@
 	<?php
 	createHead(
 		"Adil's Repo",
-		"A repo containing a simple stylesheet for responsive layouts.",
+		"A repo with documentation for reusable CSS and JS libraries.",
 		"https://adil.hanney.org/repo/previews/index.png",
         null,
 		"2021-01-24",
