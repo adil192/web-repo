@@ -77,7 +77,8 @@ export class PinchToZoomHandler {
     }
     Update(touches) {
         let currentPinchInfo = PinchToZoomHandler.getPinchInfo(touches);
-        let transform = new Matrix2x2(currentPinchInfo.scale / this.pinchStartInfo.scale * this.startingTransform.scale, currentPinchInfo.offset.Subtract(this.pinchStartInfo.offset).Add(this.startingTransform.offset));
+        let pinchOffsetChange = currentPinchInfo.offset.Subtract(this.pinchStartInfo.offset);
+        let transform = new Matrix2x2(this.startingTransform.scale * (currentPinchInfo.scale / this.pinchStartInfo.scale), this.startingTransform.offset.Add(pinchOffsetChange.Multiply(1 / this.startingTransform.scale)));
         this.SetTransform(transform);
     }
     End() {
